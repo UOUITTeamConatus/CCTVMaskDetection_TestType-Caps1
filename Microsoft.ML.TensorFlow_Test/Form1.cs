@@ -28,22 +28,53 @@ namespace Microsoft.ML.TensorFlow_Test
         private string caffemodelPath = Program.currentPath + "\\" + Program.caffemodelPath;
         private string maskdetectorPath = Program.currentPath + "\\" + Program.maskdetectorPath;
 
+        VideoCapture video;
+        Mat frame = new Mat();
 
         public Form1()
         {
             var net = CvDnn.ReadNetFromCaffe(prototxtPath, caffemodelPath);
+            //CvDnn.ReadNetFromCaffe 메서드 테스트
             var model = Keras.Models.Model.LoadModel(maskdetectorPath);
+            //Keras.Models.Model.LoadModel 메서드 테스트
             InitializeComponent();
+            //아래의 코드는 경로 테스트 코드
+            /*
             Console.WriteLine(mediaPath);
             Console.WriteLine(prototxtPath);
             Console.WriteLine(caffemodelPath);
             Console.WriteLine(maskdetectorPath);
-            Console.WriteLine(System.Windows.Forms.Application.StartupPath);
+            Console.WriteLine(System.Windows.Forms.Application.StartupPath);*/
         }
-
+        
         private void pictureBoxIpl1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                video = new VideoCapture(0);
+                video.FrameWidth = 640;
+                video.FrameHeight = 480;
+            }
+            catch
+            {
+                timer1.Enabled = false;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            video.Read(frame);
+            pictureBoxIpl1.ImageIpl = frame;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frame.Dispose();
         }
     }
 }
