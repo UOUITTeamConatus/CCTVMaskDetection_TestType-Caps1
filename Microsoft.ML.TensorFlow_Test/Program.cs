@@ -30,6 +30,16 @@ namespace Microsoft.ML.TensorFlow_Test
 
         static void Main()
         {
+            var PYTHON_HOME = Environment.ExpandEnvironmentVariables(@"C:\Users\swj12\anaconda3\");
+            // 환경 변수 설정
+            AddEnvPath(PYTHON_HOME, Path.Combine(PYTHON_HOME, @"Library\bin"));
+            // Python 홈 설정
+            PythonEngine.PythonHome = PYTHON_HOME;
+
+            // 모듈 패키지 패스 설정
+            PythonEngine.PythonPath = string.Join(Path.PathSeparator.ToString(), new string[] { PythonEngine.PythonPath, Path.Combine(PYTHON_HOME, @"Lib\site-packages") });
+            // Python 엔진 초기화
+            PythonEngine.Initialize();
             //currentPath = GetCurrentDirectory();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
