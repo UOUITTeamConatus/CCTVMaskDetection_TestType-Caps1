@@ -47,11 +47,6 @@ namespace Microsoft.ML.TensorFlow_Test
             Console.WriteLine(System.Windows.Forms.Application.StartupPath);*/
         }
         
-        private void pictureBoxIpl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             try
@@ -63,6 +58,7 @@ namespace Microsoft.ML.TensorFlow_Test
             catch
             {
                 timer1.Enabled = false;
+                Console.WriteLine("Error남");
             }
         }
 
