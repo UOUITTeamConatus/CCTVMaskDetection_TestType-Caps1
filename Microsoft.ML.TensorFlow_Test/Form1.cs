@@ -30,6 +30,7 @@ namespace Microsoft.ML.TensorFlow_Test
 
         VideoCapture video;
         Mat frame = new Mat();
+        
 
         public Form1()
         {
@@ -66,6 +67,8 @@ namespace Microsoft.ML.TensorFlow_Test
         {
             video.Read(frame);
             pictureBoxIpl1.ImageIpl = frame;
+            //여기다가 얼굴 인식 및 마스크 인식 처리를 해 줘야 함
+             
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
