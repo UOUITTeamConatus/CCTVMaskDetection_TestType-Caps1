@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\OpenCvSharp4.runtime.win.4.1.1.20191110\build\net\OpenCvSharp4.runtime.win.props" Condition="Exists('..\packages\OpenCvSharp4.runtime.win.4.1.1.20191110\build\net\OpenCvSharp4.runtime.win.props')" />
   <Import Project="..\packages\MethodBoundaryAspect.Fody.2.0.138\build\MethodBoundaryAspect.Fody.props" Condition="Exists('..\packages\MethodBoundaryAspect.Fody.2.0.138\build\MethodBoundaryAspect.Fody.props')" />
   <Import Project="..\packages\Microsoft.ML.1.5.2\build\netstandard2.0\Microsoft.ML.props" Condition="Exists('..\packages\Microsoft.ML.1.5.2\build\netstandard2.0\Microsoft.ML.props')" />
   <Import Project="..\packages\Microsoft.ML.CpuMath.1.5.2\build\netstandard2.0\Microsoft.ML.CpuMath.props" Condition="Exists('..\packages\Microsoft.ML.CpuMath.1.5.2\build\netstandard2.0\Microsoft.ML.CpuMath.props')" />
-  <Import Project="..\packages\OpenCvSharp4.runtime.win.4.5.0.20201013\build\net\OpenCvSharp4.runtime.win.props" Condition="Exists('..\packages\OpenCvSharp4.runtime.win.4.5.0.20201013\build\net\OpenCvSharp4.runtime.win.props')" />
   <Import Project="..\packages\Microsoft.ML.TensorFlow.Redist.0.14.0\build\netstandard2.0\Microsoft.ML.TensorFlow.Redist.props" Condition="Exists('..\packages\Microsoft.ML.TensorFlow.Redist.0.14.0\build\netstandard2.0\Microsoft.ML.TensorFlow.Redist.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -231,12 +231,12 @@
       <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.ML.TensorFlow.Redist.0.14.0\build\netstandard2.0\Microsoft.ML.TensorFlow.Redist.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ML.TensorFlow.Redist.0.14.0\build\netstandard2.0\Microsoft.ML.TensorFlow.Redist.props'))" />
-    <Error Condition="!Exists('..\packages\OpenCvSharp4.runtime.win.4.5.0.20201013\build\net\OpenCvSharp4.runtime.win.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCvSharp4.runtime.win.4.5.0.20201013\build\net\OpenCvSharp4.runtime.win.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.ML.CpuMath.1.5.2\build\netstandard2.0\Microsoft.ML.CpuMath.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ML.CpuMath.1.5.2\build\netstandard2.0\Microsoft.ML.CpuMath.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.ML.1.5.2\build\netstandard2.0\Microsoft.ML.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ML.1.5.2\build\netstandard2.0\Microsoft.ML.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.ML.1.5.2\build\netstandard2.0\Microsoft.ML.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ML.1.5.2\build\netstandard2.0\Microsoft.ML.targets'))" />
     <Error Condition="!Exists('..\packages\MethodBoundaryAspect.Fody.2.0.138\build\MethodBoundaryAspect.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MethodBoundaryAspect.Fody.2.0.138\build\MethodBoundaryAspect.Fody.props'))" />
     <Error Condition="!Exists('..\packages\Fody.6.3.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.3.0\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\OpenCvSharp4.runtime.win.4.1.1.20191110\build\net\OpenCvSharp4.runtime.win.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCvSharp4.runtime.win.4.1.1.20191110\build\net\OpenCvSharp4.runtime.win.props'))" />
   </Target>
   <Import Project="..\packages\Microsoft.ML.1.5.2\build\netstandard2.0\Microsoft.ML.targets" Condition="Exists('..\packages\Microsoft.ML.1.5.2\build\netstandard2.0\Microsoft.ML.targets')" />
   <Import Project="..\packages\Fody.6.3.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.3.0\build\Fody.targets')" />

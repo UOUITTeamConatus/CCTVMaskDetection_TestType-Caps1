@@ -12,22 +12,16 @@ namespace Microsoft.ML.TensorFlow_Test
 {
     static class Program
     {
-        //public const string startPath = ;
-        public static string currentPath = System.Environment.CurrentDirectory;
-        public const string mediaPath = "models\\media";
-        public const string prototxtPath = "models\\deploy.prototxt";
-        public const string caffemodelPath = "models\\res10_300x300_ssd_iter_140000.caffemodel";
-        public const string maskdetectorPath = "models\\mask_detector.model";
-        /*
-        public static string mediaPath = Path.GetFullPath(path1);
-        public static string prototxt = Path.GetFullPath(path2);
-        public static string caffemodel = Path.GetFullPath(path3);
-        public static string Maskmodel = Path.GetFullPath(path4);*/
+        public static string currentPath = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+        public static string mediaPath = Program.currentPath + "\\models\\media";
+        public static string prototxtPath = Program.currentPath + "\\models\\deploy.prototxt";
+        public static string caffemodelPath = Program.currentPath + "\\models\\res10_300x300_ssd_iter_140000.caffemodel";
+        public static string maskdetectorPath = Program.currentPath + "\\models\\mask_detector.model";
+
         /// <summary>
         /// 해당 애플리케이션의 주 진입점입니다.
         /// </summary>
         [STAThread]
-        //What the??
         static void Main()
         {
             var PYTHON_HOME = Environment.ExpandEnvironmentVariables(@"C:\Users\swj12\anaconda3\");
@@ -40,11 +34,10 @@ namespace Microsoft.ML.TensorFlow_Test
             PythonEngine.PythonPath = string.Join(Path.PathSeparator.ToString(), new string[] { PythonEngine.PythonPath, Path.Combine(PYTHON_HOME, @"Lib\site-packages") });
             // Python 엔진 초기화
             PythonEngine.Initialize();
-            //currentPath = GetCurrentDirectory();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            Console.WriteLine(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName);
+
         }
         public static void AddEnvPath(params string[] paths)
         {
