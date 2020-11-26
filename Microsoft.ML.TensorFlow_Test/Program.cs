@@ -32,7 +32,11 @@ namespace Microsoft.ML.TensorFlow_Test
             PythonEngine.PythonHome = PYTHON_HOME;
 
             // 모듈 패키지 패스 설정
-            PythonEngine.PythonPath = string.Join(Path.PathSeparator.ToString(), new string[] { PythonEngine.PythonPath, Path.Combine(PYTHON_HOME, @"Lib\site-packages") });
+            PythonEngine.PythonPath = string.Join(Path.PathSeparator.ToString(), new string[] { 
+                PythonEngine.PythonPath, 
+                Path.Combine(PYTHON_HOME, @"Lib\site-packages"),
+                currentPath + "\\Python"
+            });
             // Python 엔진 초기화
             PythonEngine.Initialize();
             Application.EnableVisualStyles();

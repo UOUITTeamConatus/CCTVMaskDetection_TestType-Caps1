@@ -26,7 +26,7 @@ namespace Microsoft.ML.TensorFlow_Test
         DirectoryInfo mediaDIR = new DirectoryInfo(Program.mediaPath);
         private DirectoryInfo di;
 
-        private OpenCvSharp.Dnn.Net net = CvDnn.ReadNetFromCaffe(Program.prototxtPath, Program.caffemodelPath);
+        private OpenCvSharp.Dnn.Net facenet = CvDnn.ReadNetFromCaffe(Program.prototxtPath, Program.caffemodelPath);
         private Keras.Models.BaseModel model = Keras.Models.Model.LoadModel(Program.maskdetectorPath); 
 
         VideoCapture video;
@@ -35,14 +35,14 @@ namespace Microsoft.ML.TensorFlow_Test
 
         public Form1()
         {
-            var net = CvDnn.ReadNetFromCaffe(Program.prototxtPath, Program.caffemodelPath);
+            //var facenet = CvDnn.ReadNetFromCaffe(Program.prototxtPath, Program.caffemodelPath);
             //CvDnn.ReadNetFromCaffe 메서드 테스트
-            var model = Keras.Models.Model.LoadModel(Program.maskdetectorPath);
+            //var model = Keras.Models.Model.LoadModel(Program.maskdetectorPath);
             //di = new DirectoryInfo(Program.mediaPath);
             //Keras.Models.Model.LoadModel 메서드 테스트
             InitializeComponent();
-            Console.WriteLine(net.GetType());
-            Console.WriteLine(model.GetType());
+            //Console.WriteLine(net.GetType());
+            //Console.WriteLine(model.GetType());
             //아래의 코드는 경로 테스트 코드
             /*
             Console.WriteLine(mediaPath);
@@ -71,12 +71,13 @@ namespace Microsoft.ML.TensorFlow_Test
         {
             video.Read(frame);
             BitmapImage = BitmapConverter.ToBitmap(frame);
-            //여기다가 얼굴 인식 및 마스크 인식 처리를 해 줘야 함
         
             pictureBoxIpl1.Image = BitmapImage;
             using (Py.GIL())
             {
-                PythonEngine.RunSimpleString(@"print('Hello')");
+                dynamic import = Py.Import("MaskDetect");
+                dynamic maskDetection = import.MaskDetection(BitmapImage, facenet, model);
+                maskDetection.execute();
             }
            
              
