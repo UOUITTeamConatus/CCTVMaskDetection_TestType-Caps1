@@ -27,7 +27,7 @@ namespace Microsoft.ML.TensorFlow_Test
         /// 해당 애플리케이션의 주 진입점입니다.
         /// </summary>
         [STAThread]
-
+        //What the??
         static void Main()
         {
             var PYTHON_HOME = Environment.ExpandEnvironmentVariables(@"C:\Users\swj12\anaconda3\");
