@@ -12,11 +12,11 @@ namespace Microsoft.ML.TensorFlow_Test
 {
     static class Program
     {
-        public static string currentPath = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-        public static string mediaPath = Program.currentPath + "\\models\\media";
-        public static string prototxtPath = Program.currentPath + "\\models\\deploy.prototxt";
-        public static string caffemodelPath = Program.currentPath + "\\models\\res10_300x300_ssd_iter_140000.caffemodel";
-        public static string maskdetectorPath = Program.currentPath + "\\models\\mask_detector.model";
+        public static string currentPath = Path.GetDirectoryName((Directory.GetParent(Environment.CurrentDirectory).Parent.FullName));
+        public static string mediaPath = currentPath + "\\models\\media";
+        public static string prototxtPath = currentPath + "\\models\\deploy.prototxt";
+        public static string caffemodelPath = currentPath + "\\models\\res10_300x300_ssd_iter_140000.caffemodel";
+        public static string maskdetectorPath = currentPath + "\\models\\mask_detector.model";
 
         /// <summary>
         /// 해당 애플리케이션의 주 진입점입니다.

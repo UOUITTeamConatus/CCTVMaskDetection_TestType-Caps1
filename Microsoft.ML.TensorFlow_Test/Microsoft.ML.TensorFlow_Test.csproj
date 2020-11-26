@@ -204,7 +204,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="models\black.model" />
+    <None Include="models\default.model" />
+    <None Include="models\deploy.prototxt" />
+    <None Include="models\mask_detector.model" />
+    <None Include="models\res10_300x300_ssd_iter_140000.caffemodel" />
+    <None Include="models\test.model" />
+    <None Include="models\total.model" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -215,6 +223,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\black.model" />
+    <None Include="Resources\default.model" />
+    <None Include="Resources\deploy.prototxt" />
+    <None Include="Resources\mask_detector.model" />
+    <None Include="Resources\res10_300x300_ssd_iter_140000.caffemodel" />
+    <None Include="Resources\test.model" />
+    <None Include="Resources\total.model" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
