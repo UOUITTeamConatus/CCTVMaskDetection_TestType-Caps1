@@ -221,6 +221,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="OpenCvSharp.UserInterface.dll" />
     <Content Include="OpenCvSharpExtern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

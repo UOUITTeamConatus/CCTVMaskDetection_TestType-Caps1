@@ -44,6 +44,7 @@ namespace Microsoft.ML.TensorFlow_Test
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            Console.WriteLine(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName);
         }
         public static void AddEnvPath(params string[] paths)
         {
