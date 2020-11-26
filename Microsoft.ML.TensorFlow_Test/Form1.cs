@@ -72,55 +72,12 @@ namespace Microsoft.ML.TensorFlow_Test
             video.Read(frame);
             BitmapImage = BitmapConverter.ToBitmap(frame);
             //여기다가 얼굴 인식 및 마스크 인식 처리를 해 줘야 함
-            var blob = CvDnn.BlobFromImage(frame, 1, new OpenCvSharp.Size(300, 300), new Scalar(104, 177, 123));
-            net.SetInput(blob, "data");
-
-            //var out = 
-
-            var dets = net.Forward();
-
-            var w = frame.Width;
-            var h = frame.Height;
-
-            var matrix = dets.Reshape(1, dets.Size(2));
-            
-            for (int i = 0; i < dets.Size(2); i++) //  prob.Size(2)=200
-            {
-                var confidence = matrix.At<float>(i, 2);
-                // var label = $"{confidence * 100:0.00}%";
-                if (confidence < 0.5)
-                    continue;
-                // 바운딩 박스를 구함 (얼굴영역을 의미)
-                var x1 = (int)(w * matrix.At<float>(i, 3)); // 특정 array element를 반환
-                var y1 = (int)(h * matrix.At<float>(i, 4));
-                var x2 = (int)(w * matrix.At<float>(i, 5));
-                var y2 = (int)(h * matrix.At<float>(i, 6));
-                
-                try
-                {
-                    //얼굴 부분만 잘라내서 출력
-                    Mat dst = frame.SubMat(new Rect(x1, y1, x2 - y1, x2 - y1));
-
-                    var face_input = Cv2.Resize(dst, dsize = (224, 224));
-                    face_input = Cv2.CvtColor(face_input, Cv2.COLOR_BGR2RGB);
-                    face_input = preprocess_input(face_input);
-                    face_input = 
-
-                }
-                catch (OpenCvSharp.OpenCVException ex)
-                {
-                    Console.WriteLine(" ");
-                }
-
-
-
-                Cv2.Rectangle(frame, new Rect(x1, y1, x2 - y1, x2 - y1), new Scalar(0, 255, 0), 2);
-                var textSize = Cv2.GetTextSize("face", HersheyFonts.HersheyTriplex, 0.5, 1, out var baseline);
-                Cv2.PutText(frame, "face", new OpenCvSharp.Point(x1, y1), HersheyFonts.HersheyTriplex, 0.5, Scalar.Black);
-                //BitmapImage = Cv2.
-            }
         
             pictureBoxIpl1.Image = BitmapImage;
+            using (Py.GIL())
+            {
+                PythonEngine.RunSimpleString(@"print('Hello')");
+            }
            
              
         }

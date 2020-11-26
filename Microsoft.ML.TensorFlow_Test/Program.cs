@@ -17,14 +17,15 @@ namespace Microsoft.ML.TensorFlow_Test
         public static string prototxtPath = currentPath + "\\models\\deploy.prototxt";
         public static string caffemodelPath = currentPath + "\\models\\res10_300x300_ssd_iter_140000.caffemodel";
         public static string maskdetectorPath = currentPath + "\\models\\mask_detector.model";
-
+        
+        public static string PYTHON_HOME = Environment.ExpandEnvironmentVariables(@"C:\Users\swj12\anaconda3\");
         /// <summary>
         /// 해당 애플리케이션의 주 진입점입니다.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            var PYTHON_HOME = Environment.ExpandEnvironmentVariables(@"C:\Users\swj12\anaconda3\");
+            //Console.WriteLine(PYTHON_HOME.GetType());
             // 환경 변수 설정
             AddEnvPath(PYTHON_HOME, Path.Combine(PYTHON_HOME, @"Library\bin"));
             // Python 홈 설정
