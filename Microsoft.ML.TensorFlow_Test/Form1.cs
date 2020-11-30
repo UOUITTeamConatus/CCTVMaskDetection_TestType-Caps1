@@ -72,8 +72,8 @@ namespace Microsoft.ML.TensorFlow_Test
             video.Read(frame);
             BitmapImage = BitmapConverter.ToBitmap(frame);
             pictureBoxIpl1.Image = BitmapImage;
-            Mat result;
-            result = Cv2.ImRead(BitmapImage);
+            //Mat result;
+            //result = Cv2.ImRead(BitmapImage);
             
             /*
             using (Py.GIL())
