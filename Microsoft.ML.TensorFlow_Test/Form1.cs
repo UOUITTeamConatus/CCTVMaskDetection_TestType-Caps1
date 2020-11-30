@@ -8,13 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.ML;
-using Microsoft.ML.Data;
-using Microsoft.ML.Transforms;
 using OpenCvSharp;
 using OpenCvSharp.Dnn;
 using OpenCvSharp.Extensions;
-using Numpy;
+using NumSharp;
 using Keras;
 using Python;
 using Python.Runtime;
@@ -24,8 +21,6 @@ namespace Microsoft.ML.TensorFlow_Test
     public partial class Form1 : Form
     {
         DirectoryInfo mediaDIR = new DirectoryInfo(Program.mediaPath);
-        private DirectoryInfo di;
-
         private OpenCvSharp.Dnn.Net facenet = CvDnn.ReadNetFromCaffe(Program.prototxtPath, Program.caffemodelPath);
         private Keras.Models.BaseModel model = Keras.Models.Model.LoadModel(Program.maskdetectorPath); 
 
@@ -44,12 +39,12 @@ namespace Microsoft.ML.TensorFlow_Test
             //Console.WriteLine(net.GetType());
             //Console.WriteLine(model.GetType());
             //아래의 코드는 경로 테스트 코드
-            /*
-            Console.WriteLine(mediaPath);
-            Console.WriteLine(prototxtPath);
-            Console.WriteLine(caffemodelPath);
-            Console.WriteLine(maskdetectorPath);
-            Console.WriteLine(System.Windows.Forms.Application.StartupPath);*/
+           
+            Console.WriteLine(Program.mediaPath);
+            Console.WriteLine(Program.prototxtPath);
+            Console.WriteLine(Program.caffemodelPath);
+            Console.WriteLine(Program.maskdetectorPath);
+            Console.WriteLine(System.Windows.Forms.Application.StartupPath);
         }
         
         private void Form1_Load(object sender, EventArgs e)
@@ -69,19 +64,26 @@ namespace Microsoft.ML.TensorFlow_Test
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            video.Read(frame);
+
+            dynamic frame1 = video.Read(frame);
+
+            //dynamic retrived;
+          
+            dynamic test = video.Read(frame);
             BitmapImage = BitmapConverter.ToBitmap(frame);
             pictureBoxIpl1.Image = BitmapImage;
+            //retrived = test[0];
+            
+            //Console.WriteLine(retrived);
+            //Console.WriteLine(image);
             //Mat result;
             //result = Cv2.ImRead(BitmapImage);
-            
-            /*
             using (Py.GIL())
             {
                 dynamic import = Py.Import("MaskDetect");
-                dynamic maskDetection = import.MaskDetection(BitmapImage, facenet, model);
-                maskDetection.execute();
-            }*/
+                dynamic maskDetection = import.MaskDetection(image, facenet, model);
+                //maskDetection.execute();
+            }
            
              
         }

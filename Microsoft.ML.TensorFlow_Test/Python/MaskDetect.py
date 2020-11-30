@@ -11,7 +11,7 @@ class MaskDetection:
         print("Import Success")
 
     def execute(self):
-        img = cv2.imread(image)
+        img = image
         h, w = img.shape[:2]
 
         blob = cv2.dnn.blobFromImage(img, scalefactor=1., size=(300, 300), mean=(104., 177., 123.))
@@ -51,4 +51,5 @@ class MaskDetection:
             cv2.putText(img, text=label, org=(x1, y1 - 10), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.8,
                     color=color, thickness=2, lineType=cv2.LINE_AA)
         #return cv2.imwrite('result.bmp',img)
+        #return img
         return 
