@@ -72,14 +72,8 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Numpy, Version=3.7.1.25, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Numpy.3.7.1.25\lib\netstandard2.0\Numpy.dll</HintPath>
-    </Reference>
     <Reference Include="Numpy.Bare, Version=3.7.1.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Numpy.Bare.3.8.1.25\lib\netstandard2.0\Numpy.Bare.dll</HintPath>
-    </Reference>
-    <Reference Include="NumSharp.Core, Version=0.20.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\NumSharp.0.20.5\lib\netstandard2.0\NumSharp.Core.dll</HintPath>
+      <HintPath>..\packages\Numpy.Bare.3.8.1.22\lib\netstandard2.0\Numpy.Bare.dll</HintPath>
     </Reference>
     <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenCvSharp4.4.1.1.20191110\lib\net461\OpenCvSharp.dll</HintPath>
